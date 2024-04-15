@@ -120,6 +120,22 @@ var PowerZone = function () {
 		}
 	}
 
+	/* dropdownmenu scroll  */
+	
+		window.addEventListener('scroll', function () {
+			console.log('test');
+			var dropdownMenu = document.getElementById('dropdownMenu');
+			var header = document.querySelector('.site-header');
+
+			if (window.scrollY > header.offsetHeight) {
+				dropdownMenu.classList.remove('text-white');
+				dropdownMenu.classList.add('text-black');
+			} else {
+				dropdownMenu.classList.remove('text-black');
+				dropdownMenu.classList.add('text-white');
+			}
+		});
+	
 	/* Load File ============ */
 	var handleDzTheme = function () {
 		'use strict';
@@ -1103,7 +1119,6 @@ var PowerZone = function () {
 	}
 
 }();
-
 /* Document.ready Start */
 jQuery(document).ready(function () {
 	'use strict';
