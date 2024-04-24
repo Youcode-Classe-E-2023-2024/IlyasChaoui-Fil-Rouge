@@ -35,7 +35,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
             if ($user->role->name === 'Admin') {
-                return redirect()->route('dashboard'); 
+                return redirect()->route('show.static'); 
             } else {
                 return redirect()->route('home'); 
             }
