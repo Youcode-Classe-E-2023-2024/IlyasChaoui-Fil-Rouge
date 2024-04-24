@@ -20,7 +20,7 @@ class RegisterController extends Controller
     {
         $user = Auth::user();
         $cities = City::all();
-        return view('homePages.auth.register', compact('cities,user'));
+        return view('homePages.auth.register', compact(['cities','user']));
     }
 
     /**
