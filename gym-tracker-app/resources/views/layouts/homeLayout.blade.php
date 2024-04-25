@@ -32,23 +32,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon.png') }}">
 
     <!-- Tailwind cdn -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
     <!-- Stylesheet -->
-    <link href="assets/vendor/animate/animate.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-    <link href="assets/vendor/splitting/dist/splitting.css" rel="stylesheet">
-    <link href="assets/vendor/magnific-popup/magnific-popup.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
-    <link href="assets/vendor/rangeslider/rangeslider.css" rel="stylesheet">
-    <link href="assets/vendor/switcher/switcher.css" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/animate/animate.css') }}" rel="stylesheet">
+    <link href="{{ asset('./assets-dashboard/css/buttons.css') }}" rel="stylesheet" >
+    <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/splitting/dist/splitting.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/magnific-popup/magnific-popup.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/rangeslider/rangeslider.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/switcher/switcher.css') }}" rel="stylesheet">
 
     <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link class="skin" rel="stylesheet" href="assets/css/skin/skin-1.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link class="skin" rel="stylesheet" href="{{ asset('assets/css/skin/skin-1.css') }}">
 
     <!-- Alpine -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
@@ -80,30 +81,32 @@
 
     <div class="page-wraper">
         <!-- Header -->
+        
+        <x-Navbars.home-navbar :user="$user" />
 
-        <x-Navbars.home-navbar :user="$user"/>
-        <!-- Header -->
+        <!-- End Header -->
+
         @yield('main')
 
         <x-Footers.home-footer />
     </div>
 
     <!-- JAVASCRIPT FILES ========================================= -->
-    <script src="assets/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
-    <script src="assets/vendor/wow/wow.js"></script><!-- WOW.JS -->
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script><!-- BOOTSTRAP.MIN JS -->
-    <script src="assets/vendor/splitting/dist/splitting.min.js"></script><!-- Splitting -->
-    <script src="assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script><!-- BOOTSTRAP SELEECT -->
-    <script src="assets/vendor/magnific-popup/magnific-popup.js"></script><!-- MAGNIFIC POPUP JS -->
-    <script src="assets/vendor/counter/waypoints-min.js"></script><!-- WAYPOINTS JS -->
-    <script src="assets/vendor/counter/counterup.min.js"></script><!-- COUNTERUP JS -->
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script><!-- SWIPER -->
-    <script src="assets/vendor/rangeslider/rangeslider.js"></script><!-- RANGESLIDER -->
-    <script src="assets/vendor/switcher/switcher.js"></script><!-- SWITCHER -->
-    <script src="assets/js/dz.carousel.js"></script><!-- OWL-CAROUSEL -->
-    <script src="assets/js/dz.ajax.js"></script><!-- AJAX -->
-    <script src="assets/js/custom.js"></script><!-- CUSTOM JS -->
-    <script src="assets/js/imageRegister.js"></script><!-- ImageRegister JS -->
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script><!-- JQUERY.MIN JS -->
+    <script src="{{ asset('assets/vendor/wow/wow.js') }}"></script><!-- WOW.JS -->
+    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script><!-- BOOTSTRAP.MIN JS -->
+    <script src="{{ asset('assets/vendor/splitting/dist/splitting.min.js') }}"></script><!-- Splitting -->
+    <script src="{{ asset('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script><!-- BOOTSTRAP SELEECT -->
+    <script src="{{ asset('assets/vendor/magnific-popup/magnific-popup.js') }}"></script><!-- MAGNIFIC POPUP JS -->
+    <script src="{{ asset('assets/vendor/counter/waypoints-min.js') }}"></script><!-- WAYPOINTS JS -->
+    <script src="{{ asset('assets/vendor/counter/counterup.min.js') }}"></script><!-- COUNTERUP JS -->
+    <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script><!-- SWIPER -->
+    <script src="{{ asset('assets/vendor/rangeslider/rangeslider.js') }}"></script><!-- RANGESLIDER -->
+    <script src="{{ asset('assets/vendor/switcher/switcher.js') }}"></script><!-- SWITCHER -->
+    <script src="{{ asset('assets/js/dz.carousel.js') }}"></script><!-- OWL-CAROUSEL -->
+    <script src="{{ asset('assets/js/dz.ajax.js') }}"></script><!-- AJAX -->
+    <script src="{{ asset('assets/js/custom.js') }}"></script><!-- CUSTOM JS -->
+    <script src="{{ asset('assets/js/imageRegister.js') }}"></script><!-- ImageRegister JS -->
 
 </body>
 
