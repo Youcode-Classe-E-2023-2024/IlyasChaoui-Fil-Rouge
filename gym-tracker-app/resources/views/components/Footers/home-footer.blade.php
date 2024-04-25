@@ -1,13 +1,13 @@
 <!-- Footer -->
     <footer class="site-footer style-1 bg-parallax"
-        style="background-image: url(assets/images/background/footer-bg-2.jpg);" id="footer">
+        style="background-image: url({{ asset('assets/images/background/footer-bg-2.jpg') }});" id="footer">
         <div class="footer-top">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-3 col-md-12 wow fadeInUp" data-wow-delay="0.2s">
                         <div class="widget widget_about">
                             <div class="footer-logo logo-white">
-                                <a href="index.html"><img src="assets/images/logo-white.png" alt=""></a>
+                                <a href="index.html"><img src="{{ asset('assets/images/logo-white.png') }}" alt=""></a>
                             </div>
                             <p>A Wonderful Serenity Has Taken Possession Of My Entire Soul, Like These.</p>
                             <span class="m-b15 d-block text-white font-weight-600">Our Socials</span>
