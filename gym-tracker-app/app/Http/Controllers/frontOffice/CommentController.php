@@ -12,7 +12,7 @@ class CommentController extends Controller
     public function fetchComments($blogId)
     {
         $comments = Comments::where('blog_id', $blogId)
-            ->with('coach')
+            ->with('user')
             ->orderBy('created_at', 'desc')
             ->get();
         return response()->json($comments);
