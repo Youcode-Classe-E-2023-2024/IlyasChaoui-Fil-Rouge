@@ -33,205 +33,34 @@
         </div>
         <!-- Banner End -->
 
-        <!-- Our Team -->
+        <!-- Our classes -->
+        @php
+            $delay = 0.2;
+        @endphp
         <section class="content-inner">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 m-b30">
-                        <div class="icon-bx-wraper style-1 hover-aware box-hover wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="icon-bx m-b20">
-                                <div class="icon-cell text-primary">
-                                    <i class="flaticon-fitness"></i>
+                    @foreach ($classes as $classe)
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 m-b30">
+                            <div class="dz-img-box style-3 box-hover hover-aware wow fadeInUp"
+                                data-wow-delay="{{ $delay }}s"
+                                style="background-image: url('{{ $classe->picture }}');">
+                                <div class="dz-content">
+                                    <span class="date">{{ $classe->category->name }}</span>
+                                    <h3 class="title"><a
+                                            href="{{ route('class.detail', ['id' => $classe->id, 'category_id' => $classe->category->id]) }}">{{ $classe->name }}</a></h3>
+                                    <a href="{{ route('class.detail', ['id' => $classe->id, 'category_id' => $classe->category->id]) }}" class="read-more">Read More</a>
                                 </div>
+                                <div class="effect"></div>
                             </div>
-                            <div class="icon-content">
-                                <h4 class="dz-title m-b10"><a href="/serviceDetails">Our Classes</a></h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            </div>
-                            <a href="/serviceDetails" class="btn-link">Read More <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                            <div class="effect"></div>
                         </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 m-b30">
-                        <div class="icon-bx-wraper style-1 hover-aware box-hover wow fadeInUp" data-wow-delay="0.2s">
-                            <div class="icon-bx m-b20">
-                                <div class="icon-cell text-primary">
-                                    <i class="flaticon-user"></i>
-                                </div>
-                            </div>
-                            <div class="icon-content">
-                                <h4 class="dz-title m-b10"><a href="/serviceDetails">Our Trainers</a></h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            </div>
-                            <a href="/serviceDetails" class="btn-link">Read More <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                            <div class="effect"></div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 m-b30">
-                        <div class="icon-bx-wraper style-1 hover-aware box-hover wow fadeInUp" data-wow-delay="0.3s">
-                            <div class="icon-bx m-b20">
-                                <div class="icon-cell text-primary">
-                                    <i class="flaticon-medal"></i>
-                                </div>
-                            </div>
-                            <div class="icon-content">
-                                <h4 class="dz-title m-b10"><a href="/serviceDetails">Memberships</a></h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            </div>
-                            <a href="/serviceDetails" class="btn-link">Read More <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                            <div class="effect"></div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 m-b30">
-                        <div class="icon-bx-wraper style-1 hover-aware box-hover wow fadeInUp" data-wow-delay="0.4s">
-                            <div class="icon-bx m-b20">
-                                <div class="icon-cell text-primary">
-                                    <i class="flaticon-calendar"></i>
-                                </div>
-                            </div>
-                            <div class="icon-content">
-                                <h4 class="dz-title m-b10"><a href="/serviceDetails">Our Timeline</a></h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            </div>
-                            <a href="/serviceDetails" class="btn-link">Read More <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                            <div class="effect"></div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 m-b30">
-                        <div class="icon-bx-wraper style-1 hover-aware box-hover wow fadeInUp" data-wow-delay="0.5s">
-                            <div class="icon-bx m-b20">
-                                <div class="icon-cell text-primary">
-                                    <i class="flaticon-verify-1"></i>
-                                </div>
-                            </div>
-                            <div class="icon-content">
-                                <h4 class="dz-title m-b10"><a href="/serviceDetails">Our Trust</a></h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            </div>
-                            <a href="/serviceDetails" class="btn-link">Read More <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                            <div class="effect"></div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 m-b30">
-                        <div class="icon-bx-wraper style-1 hover-aware box-hover wow fadeInUp" data-wow-delay="0.6s">
-                            <div class="icon-bx m-b20">
-                                <div class="icon-cell text-primary">
-                                    <i class="flaticon-supplement-bottle"></i>
-                                </div>
-                            </div>
-                            <div class="icon-content">
-                                <h4 class="dz-title m-b10"><a href="/serviceDetails">Our Supplement</a></h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            </div>
-                            <a href="/serviceDetails" class="btn-link">Read More <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                            <div class="effect"></div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 m-b30">
-                        <div class="icon-bx-wraper style-1 hover-aware box-hover wow fadeInUp" data-wow-delay="0.7s">
-                            <div class="icon-bx m-b20">
-                                <div class="icon-cell text-primary">
-                                    <i class="flaticon-premium"></i>
-                                </div>
-                            </div>
-                            <div class="icon-content">
-                                <h4 class="dz-title m-b10"><a href="/serviceDetails">Premium Plan</a></h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            </div>
-                            <a href="/serviceDetails" class="btn-link">Read More <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                            <div class="effect"></div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 m-b30">
-                        <div class="icon-bx-wraper style-1 hover-aware box-hover wow fadeInUp" data-wow-delay="0.8s">
-                            <div class="icon-bx m-b20">
-                                <div class="icon-cell text-primary">
-                                    <i class="flaticon-training"></i>
-                                </div>
-                            </div>
-                            <div class="icon-content">
-                                <h4 class="dz-title m-b10"><a href="/serviceDetails">Weight Lifting</a></h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            </div>
-                            <a href="/serviceDetails" class="btn-link">Read More <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                            <div class="effect"></div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 m-b30">
-                        <div class="icon-bx-wraper style-1 hover-aware box-hover wow fadeInUp" data-wow-delay="0.9s">
-                            <div class="icon-bx m-b20">
-                                <div class="icon-cell text-primary">
-                                    <i class="flaticon-contact-center"></i>
-                                </div>
-                            </div>
-                            <div class="icon-content">
-                                <h4 class="dz-title m-b10"><a href="/serviceDetails">Online Support</a></h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            </div>
-                            <a href="/serviceDetails" class="btn-link">Read More <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                            <div class="effect"></div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 m-b30">
-                        <div class="icon-bx-wraper style-1 hover-aware box-hover wow fadeInUp" data-wow-delay="1.0s">
-                            <div class="icon-bx m-b20">
-                                <div class="icon-cell text-primary">
-                                    <i class="flaticon-settings-1"></i>
-                                </div>
-                            </div>
-                            <div class="icon-content">
-                                <h4 class="dz-title m-b10"><a href="/serviceDetails">Gym Services</a></h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            </div>
-                            <a href="/serviceDetails" class="btn-link">Read More <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                            <div class="effect"></div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 m-b30">
-                        <div class="icon-bx-wraper style-1 hover-aware box-hover wow fadeInUp" data-wow-delay="1.1s">
-                            <div class="icon-bx m-b20">
-                                <div class="icon-cell text-primary">
-                                    <i class="flaticon-exercise-2"></i>
-                                </div>
-                            </div>
-                            <div class="icon-content">
-                                <h4 class="dz-title m-b10"><a href="/serviceDetails">Streching</a></h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            </div>
-                            <a href="/serviceDetails" class="btn-link">Read More <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                            <div class="effect"></div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 m-b30">
-                        <div class="icon-bx-wraper style-1 hover-aware box-hover wow fadeInUp" data-wow-delay="1.2s">
-                            <div class="icon-bx m-b20">
-                                <div class="icon-cell text-primary">
-                                    <i class="flaticon-star"></i>
-                                </div>
-                            </div>
-                            <div class="icon-content">
-                                <h4 class="dz-title m-b10"><a href="/serviceDetails">Best Rating</a></h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            </div>
-                            <a href="/serviceDetails" class="btn-link">Read More <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                            <div class="effect"></div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>
+        @php
+            $delay += 0.4;
+        @endphp
         <!-- Our Team -->
 
         <!-- Call To Action -->
@@ -246,14 +75,13 @@
                         <div class="text-center text-lg-end col-xl-6 wow fadeInUp" data-wow-delay="0.4s"
                             style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
                             <form class="dzSubscribe"
-                                action="https://powerzone.dexignzone.com/xhtml/assets/script/mailchamp.php"
-                                method="post">
+                                action="https://powerzone.dexignzone.com/xhtml/assets/script/mailchamp.php" method="post">
                                 <div class="dzSubscribeMsg"></div>
                                 <div class="form-group">
                                     <div class="input-group mb-0">
                                         <div class="input-skew">
-                                            <input name="dzEmail" required="required" type="email"
-                                                class="form-control" placeholder="Your Email Address">
+                                            <input name="dzEmail" required="required" type="email" class="form-control"
+                                                placeholder="Your Email Address">
                                         </div>
                                         <div class="input-group-addon">
                                             <button name="submit" value="Submit" type="submit"
