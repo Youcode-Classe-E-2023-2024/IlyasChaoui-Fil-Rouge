@@ -47,7 +47,6 @@ class BlogsController extends Controller
     public function deleteBlog($id)
     {
         $blog = Blog::findOrFail($id);
-        dd($blog);
         $blog->delete();
 
         return redirect('/')->with('success', 'Class created successfully.');

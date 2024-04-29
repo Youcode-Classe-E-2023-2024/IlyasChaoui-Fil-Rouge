@@ -11,9 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('plan', function (Blueprint $table) {
+        Schema::create('abonnement_feature', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->bigInteger('feature_id');
+            $table->bigInteger('abonnement_id');
+
+            $table->foreign('feature_id')->references('id')->on('features');
+            $table->foreign('abonnement_id')->references('id')->on('abonnements');
+
             $table->timestamps();
         });
     }
@@ -23,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('plan');
+        Schema::dropIfExists('abonnement_classe');
     }
 };

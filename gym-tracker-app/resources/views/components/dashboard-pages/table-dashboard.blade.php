@@ -1,5 +1,7 @@
+@props(['users'])
+
 @section('title')
-    table
+    Users
 @endsection
 
 <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl">
@@ -8,8 +10,6 @@
     <x-Navbars.dashboard-navbar msg="Your static string here" />
 
     <!-- End Navbar -->
-
-
     <div class="w-full px-6 py-6 mx-auto">
         <!-- table 1 -->
 
@@ -31,283 +31,123 @@
                                             Author</th>
                                         <th
                                             class="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
-                                            Function</th>
+                                            Role</th>
                                         <th
                                             class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
-                                            Status</th>
+                                            City</th>
                                         <th
                                             class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
-                                            Employed</th>
-                                        <th
-                                            class="px-6 py-3 font-semibold capitalize align-middle bg-transparent border-b border-collapse border-solid shadow-none dark:border-white/40 dark:text-white tracking-none whitespace-nowrap text-slate-400 opacity-70">
-                                        </th>
+                                            Phone Number</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td
-                                            class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <div class="flex px-2 py-1">
-                                                <div>
-                                                    <img src="./assets-dashboard/img/team-2.jpg"
-                                                        class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl"
-                                                        alt="user1" />
+                                    @foreach ($users as $user)
+                                        <tr>
+                                            <td
+                                                class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                                                <div class="flex px-2 py-1">
+                                                    <div>
+                                                        <img src="{{ $user->picture }}"
+                                                            class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl"
+                                                            alt="user1" />
+                                                    </div>
+                                                    <div class="flex flex-col justify-center">
+                                                        <h6 class="mb-0 text-sm leading-normal dark:text-white">
+                                                            {{ $user->name }}</h6>
+                                                        <p
+                                                            class="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">
+                                                            {{ $user->email }}</p>
+                                                    </div>
                                                 </div>
-                                                <div class="flex flex-col justify-center">
-                                                    <h6 class="mb-0 text-sm leading-normal dark:text-white">John
-                                                        Michael</h6>
-                                                    <p
-                                                        class="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">
-                                                        john@creative-tim.com</p>
+                                            </td>
+                                            <td
+                                                class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                                                <p
+                                                    class="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">
+                                                    {{ $user->role->name }}</p>
+                                            </td>
+                                            <td
+                                                class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                                                <span
+                                                    class="bg-gradient-to-tl from-emerald-500 to-teal-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">{{ $user->city->name }}</span>
+                                            </td>
+                                            <td
+                                                class="p-2 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                                                <span
+                                                    class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">{{ $user->phone_number }}</span>
+                                            </td>
+                                            <td
+                                                class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                                                <button data-modal-target="popup-modal-{{ $user->id }}" data-modal-toggle="popup-modal-{{ $user->id }}"
+                                                    class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">
+                                                    Delete </button>
+                                                <div id="popup-modal-{{ $user->id }}" tabindex="-1"
+                                                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                                                    <div class="relative p-4 w-full max-w-md max-h-full">
+                                                        <div
+                                                            class="relative bg-transparent rounded-lg shadow dark:bg-gray-700">
+                                                            <div
+                                                                class="group select-none w-[250px] flex flex-col p-4 relative items-center justify-center bg-gray-800 border border-gray-800 shadow-lg rounded-2xl">
+                                                                <button type="button"
+                                                                    class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                                                    data-modal-hide="popup-modal-{{ $user->id }}">
+                                                                    <svg class="w-3 h-3" aria-hidden="true"
+                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                        fill="none" viewBox="0 0 14 14">
+                                                                        <path stroke="currentColor"
+                                                                            stroke-linecap="round"
+                                                                            stroke-linejoin="round" stroke-width="2"
+                                                                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                                                    </svg>
+                                                                    <span class="sr-only">Close modal</span>
+                                                                </button>
+                                                                <div class="">
+                                                                    <form
+                                                                        action="{{ route('delete.user', ['id' => $user->id]) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <div
+                                                                            class="text-center p-3 flex-auto justify-center">
+                                                                            <svg fill="currentColor" viewBox="0 0 20 20"
+                                                                                class="animate-bounce w-12 h-12 flex items-center text-red-600 fill-red-500 mx-auto"
+                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                <path clip-rule="evenodd"
+                                                                                    d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                                                                    fill-rule="evenodd"></path>
+                                                                            </svg>
+                                                                            <h2
+                                                                                class="text-xl font-bold py-4 text-gray-200">
+                                                                                Are you sure?</h2>
+                                                                            <p
+                                                                                class="font-bold text-sm text-gray-500 px-2">
+                                                                                Do you really want to continue ? This
+                                                                                process cannot be undone
+                                                                            </p>
+                                                                        </div>
+                                                                        <div
+                                                                            class="p-2 mt-2 text-center space-x-1 md:block">
+                                                                            <button
+                                                                                data-modal-hide="popup-modal-{{ $user->id }}"
+                                                                                type="button"
+                                                                                class="mb-2 md:mb-0 bg-gray-700 px-5 py-2 text-sm shadow-sm font-medium tracking-wider border-2 border-gray-600 hover:border-gray-700 text-gray-300 rounded-full hover:shadow-lg hover:bg-gray-800 transition ease-in duration-300">
+                                                                                Cancel
+                                                                            </button>
+                                                                            <button type="submit"
+                                                                                class="bg-red-600 hover:bg-transparent px-5 ml-4 py-2 text-sm shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-red-500 hover:border-red-500 text-white hover:text-red-500 rounded-full transition ease-in duration-300">
+                                                                                Confirm
+                                                                            </button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </td>
-                                        <td
-                                            class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <p
-                                                class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">
-                                                Manager</p>
-                                            <p
-                                                class="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">
-                                                Organization</p>
-                                        </td>
-                                        <td
-                                            class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <span
-                                                class="bg-gradient-to-tl from-emerald-500 to-teal-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Online</span>
-                                        </td>
-                                        <td
-                                            class="p-2 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <span
-                                                class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">23/04/18</span>
-                                        </td>
-                                        <td
-                                            class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <a href="javascript:;"
-                                                class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">
-                                                Edit </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <div class="flex px-2 py-1">
-                                                <div>
-                                                    <img src="./assets-dashboard/img/team-3.jpg"
-                                                        class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl"
-                                                        alt="user2" />
-                                                </div>
-                                                <div class="flex flex-col justify-center">
-                                                    <h6 class="mb-0 text-sm leading-normal dark:text-white">Alexa Liras
-                                                    </h6>
-                                                    <p
-                                                        class="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">
-                                                        alexa@creative-tim.com</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td
-                                            class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <p
-                                                class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">
-                                                Programator</p>
-                                            <p
-                                                class="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">
-                                                Developer</p>
-                                        </td>
-                                        <td
-                                            class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <span
-                                                class="bg-gradient-to-tl from-slate-600 to-slate-300 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Offline</span>
-                                        </td>
-                                        <td
-                                            class="p-2 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <span
-                                                class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">11/01/19</span>
-                                        </td>
-                                        <td
-                                            class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <a href="javascript:;"
-                                                class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">
-                                                Edit </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <div class="flex px-2 py-1">
-                                                <div>
-                                                    <img src="./assets-dashboard/img/team-4.jpg"
-                                                        class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl"
-                                                        alt="user3" />
-                                                </div>
-                                                <div class="flex flex-col justify-center">
-                                                    <h6 class="mb-0 text-sm leading-normal dark:text-white">Laurent
-                                                        Perrier</h6>
-                                                    <p
-                                                        class="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">
-                                                        laurent@creative-tim.com</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td
-                                            class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <p
-                                                class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">
-                                                Executive</p>
-                                            <p
-                                                class="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">
-                                                Projects</p>
-                                        </td>
-                                        <td
-                                            class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <span
-                                                class="bg-gradient-to-tl from-emerald-500 to-teal-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Online</span>
-                                        </td>
-                                        <td
-                                            class="p-2 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <span
-                                                class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">19/09/17</span>
-                                        </td>
-                                        <td
-                                            class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <a href="javascript:;"
-                                                class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">
-                                                Edit </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <div class="flex px-2 py-1">
-                                                <div>
-                                                    <img src="./assets-dashboard/img/team-3.jpg"
-                                                        class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl"
-                                                        alt="user4" />
-                                                </div>
-                                                <div class="flex flex-col justify-center">
-                                                    <h6 class="mb-0 text-sm leading-normal dark:text-white">Michael
-                                                        Levi</h6>
-                                                    <p
-                                                        class="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">
-                                                        michael@creative-tim.com</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td
-                                            class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <p
-                                                class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">
-                                                Programator</p>
-                                            <p
-                                                class="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">
-                                                Developer</p>
-                                        </td>
-                                        <td
-                                            class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <span
-                                                class="bg-gradient-to-tl from-emerald-500 to-teal-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Online</span>
-                                        </td>
-                                        <td
-                                            class="p-2 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <span
-                                                class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">24/12/08</span>
-                                        </td>
-                                        <td
-                                            class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <a href="javascript:;"
-                                                class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">
-                                                Edit </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <div class="flex px-2 py-1">
-                                                <div>
-                                                    <img src="./assets-dashboard/img/team-2.jpg"
-                                                        class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl"
-                                                        alt="user5" />
-                                                </div>
-                                                <div class="flex flex-col justify-center">
-                                                    <h6 class="mb-0 text-sm leading-normal dark:text-white">Richard
-                                                        Gran</h6>
-                                                    <p
-                                                        class="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">
-                                                        richard@creative-tim.com</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td
-                                            class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <p
-                                                class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">
-                                                Manager</p>
-                                            <p
-                                                class="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">
-                                                Executive</p>
-                                        </td>
-                                        <td
-                                            class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <span
-                                                class="bg-gradient-to-tl from-slate-600 to-slate-300 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Offline</span>
-                                        </td>
-                                        <td
-                                            class="p-2 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <span
-                                                class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">04/10/21</span>
-                                        </td>
-                                        <td
-                                            class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <a href="javascript:;"
-                                                class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">
-                                                Edit </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            class="p-2 align-middle bg-transparent border-b-0 whitespace-nowrap shadow-transparent">
-                                            <div class="flex px-2 py-1">
-                                                <div>
-                                                    <img src="./assets-dashboard/img/team-4.jpg"
-                                                        class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl"
-                                                        alt="user6" />
-                                                </div>
-                                                <div class="flex flex-col justify-center">
-                                                    <h6 class="mb-0 text-sm leading-normal dark:text-white">Miriam Eric
-                                                    </h6>
-                                                    <p
-                                                        class="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">
-                                                        miriam@creative-tim.com</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td
-                                            class="p-2 align-middle bg-transparent border-b-0 whitespace-nowrap shadow-transparent">
-                                            <p
-                                                class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">
-                                                Programtor</p>
-                                            <p
-                                                class="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">
-                                                Developer</p>
-                                        </td>
-                                        <td
-                                            class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b-0 whitespace-nowrap shadow-transparent">
-                                            <span
-                                                class="bg-gradient-to-tl from-slate-600 to-slate-300 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Offline</span>
-                                        </td>
-                                        <td
-                                            class="p-2 text-center align-middle bg-transparent border-b-0 whitespace-nowrap shadow-transparent">
-                                            <span
-                                                class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">14/09/20</span>
-                                        </td>
-                                        <td
-                                            class="p-2 align-middle bg-transparent border-b-0 whitespace-nowrap shadow-transparent">
-                                            <a href="javascript:;"
-                                                class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">
-                                                Edit </a>
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

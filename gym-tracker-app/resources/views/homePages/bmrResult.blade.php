@@ -1,13 +1,11 @@
 @extends('Layouts.homeLayout')
 
 @section('title')
-    Coaches
+    Calories
 @endsection
-
 
 @section('main')
     <div class="page-content bg-white">
-
 
         <!-- Banner  -->
         <div class="dz-bnr-inr style-2" style="background-image: url('assets/images/banner/banner-2.png')">
@@ -16,62 +14,70 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="dz-bnr-inr-entry">
-                            <h1>Our Team</h1>
+                            <h1>BMI Calculator</h1>
                             <!-- Breadcrumb Row -->
                             <nav aria-label="breadcrumb" class="breadcrumb-row">
                                 <ul class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Our Team</li>
+                                    <li class="breadcrumb-item active" aria-current="page">BMI</li>
                                 </ul>
                             </nav>
                             <!-- Breadcrumb Row End -->
                         </div>
                     </div>
-                </div>
-                <div class="banner-media">
-                    <img src="assets/images/banner/pic1.png" alt="/">
+                    <div class="col-lg-4">
+                        <div class="banner-media">
+                            <img src="assets/images/banner/pic1.png" alt="/">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <!-- Banner End -->
 
-        <!-- Our Team -->
-        <section class="content-inner">
-            <div class="container">
-                <div class="row justify-content-center">
-                    @foreach ($coaches as $coach)
-                        <div class="col-lg-4 col-md-6 col-sm-6 m-b30">
-                            <div class="dz-team style-1 wow fadeInUp" data-wow-delay="0.6s">
-                                <div class="dz-media">
-                                    <a href="{{ route('coach.detail', ['id' => $coach->id])}}"><img src="{{ $coach->picture }}" alt=""></a>
-                                    <ul class="team-social">
-                                        <li><a href="https://www.facebook.com/" class="fab fa-facebook-f"></a></li>
-                                        <li><a href="https://www.instagram.com/" class="fab fa-instagram"></a></li>
-                                        <li><a href="https://twitter.com/?lang=en" class="fab fa-twitter"></a></li>
-                                    </ul>
-                                </div>
-                                <div class="dz-content ">
-                                    <h4 class="dz-name">{{ $coach->name }}</h4>
-                                    <span class="dz-position">
-                                        @if ($coach->classes->isEmpty())
-                                            Online Trainer
-                                        @else
-                                            @foreach ($coach->classes as $class)
-                                                {{ $class->category->name }} Trainer
-                                                @if (!$loop->last)
-                                                    ,
-                                                @endif
-                                            @endforeach
-                                        @endif
-                                    </span>
-                                </div>
+        <!-- Body Mass Index -->
+        <section class="content-inner overflow-hidden">
+            <div class="">
+                <div class="  m-b20 flex justify-center items-center">
+                    <div class="col-lg-4 m-md-t40">
+                        <div class="calculate-table wow fadeInUp" data-wow-delay="0.6s">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Calories</th>
+                                        <th>Weight Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Calories</td>
+                                        <td>{{ $total_calories }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Protein</td>
+                                        <td>{{ $protein_g }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Carbs</td>
+                                        <td>{{ $carb_g }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fats</td>
+                                        <td>{{ $fat_g }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="weight-info">
+
                             </div>
                         </div>
-                    @endforeach
+                    </div>
+                    
                 </div>
             </div>
         </section>
-        <!-- Our Team -->
+        <!-- Body Mass Index -->
+
 
         <!-- Call To Action -->
         <section class="call-action style-2 bg-img-fix bg-primary">
@@ -108,5 +114,6 @@
             </div>
         </section>
         <!-- Call To Action -->
+
     </div>
 @endsection

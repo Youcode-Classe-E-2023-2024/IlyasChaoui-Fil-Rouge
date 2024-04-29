@@ -123,7 +123,7 @@ var PowerZone = function () {
 	/* dropdownmenu scroll  */
 	
 		window.addEventListener('scroll', function () {
-			console.log('test');
+			// console.log('test');
 			var dropdownMenu = document.getElementById('dropdownMenu');
 			var header = document.querySelector('.site-header');
 
@@ -254,7 +254,7 @@ var PowerZone = function () {
 					menu.addClass('is-fixed');
 				} else {
 					menu.removeClass('is-fixed');
-				}
+				}	
 			}
 		});
 		/* Main navigation fixed on top  when scroll down function custom end*/
@@ -1040,12 +1040,6 @@ var PowerZone = function () {
 		});
 	}
 
-	/* Handle Support ============ */
-	var handleSupport = function () {
-		var support = '<script id="DZScript" src="https://dzassets.s3.amazonaws.com/w3-global.js"></script>';
-		jQuery('body').append(support);
-	}
-
 	/* Password Show / Hide */
 	var handleShowPass = function () {
 		jQuery('.show-pass').on('click', function () {
@@ -1151,15 +1145,10 @@ jQuery(document).ready(function () {
 /* Window Load START */
 jQuery(window).on('load', function () {
 	PowerZone.load();
-
-	setTimeout(function () {
-		jQuery('#loading-area-2').addClass('active');
-		jQuery('#loading-area-2').fadeOut(2500);
-	}, 2500);
 	setTimeout(function () {
 		jQuery('#loading-area').fadeOut();
-		jQuery('#loading-area-2').addClass('show');
 	}, 2000);
+
 });
 /*  Window Load END */
 

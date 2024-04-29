@@ -53,7 +53,7 @@
     <div class="items-center block w-auto max-h-screen overflow-auto grow basis-full">
         <ul class="flex flex-col pl-0 mb-0">
             <li class="mt-0.5 w-full">
-                <a class="py-2.7 @if (Request::url() === 'http://127.0.0.1:8000/staticDash') font-black bg-blue-500/13 @endif dark:text-white dark:opacity-80 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap rounded-lg px-4  text-slate-700 transition-colors"
+                <a class="py-2.7 @if (Request::url() === 'http://127.0.0.1:8000/staticDash') font-black bg-blue-200 @endif hover:bg-blue-200     dark:text-white dark:opacity-80 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap rounded-lg px-4  text-slate-700 transition-colors"
                     href="/staticDash">
                     <div
                         class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
@@ -64,8 +64,8 @@
             </li>
 
             <li class="mt-0.5 w-full">
-                <a class=" dark:text-white @if (Request::url() === 'http://127.0.0.1:8000/') font-black bg-blue-500/13 @endif dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
-                    href="/tableDash">
+                <a class=" dark:text-white @if (Request::url() === 'http://127.0.0.1:8000/') font-black bg-blue-500/13 @endif hover:bg-blue-200 dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
+                    href="/">
                     <div
                         class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
                         <i class="relative top-0 text-sm leading-normal text-orange-500 ni ni-calendar-grid-58"></i>
@@ -73,122 +73,82 @@
                     <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Front Office</span>
                 </a>
             </li>
-
-            <li class="mt-0.5 w-full relative">
-                <a class="dark:text-white @if (Request::url() === 'http://127.0.0.1:8000/tableDash') font-black bg-blue-500/13 @endif dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center justify-between whitespace-nowrap px-4 transition-colors front-office-link">
-                    <div class="flex justify-center items-center">
+            <li>
+                <div class="py-2.7 flex justify-between items-center dark:text-white dark:opacity-80 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap rounded-lg px-4  text-slate-700 transition-colors"
+                    onclick="dropdown()">
+                    <div class="flex kustify-center items-center">
                         <div
-                            class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center fill-current stroke-0 text-center xl:p-2.5">
-                            <i class="relative top-0 text-sm leading-normal text-emerald-500 ni ni-credit-card"></i>
+                            class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                            <i class="relative top-0 text-sm leading-normal text-emerald-500 ni ni-align-left-2"></i>
                         </div>
-                        <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Tables</span>
+                        <span class="ml-1 duration-300  opacity-100 pointer-events-none ease">Tables</span>
                     </div>
-                    <i class="toggle-icon fas fa-chevron-down"></i> <!-- Downward chevron icon -->
-                </a>
-                <ul id="tableDropdown"
-                    class="relative hidden mt-4 top-full left-0 bg-white border border-gray-200 shadow-lg py-2 px-3 rounded-lg">
-                    <li>
-                        <a class="dark:text-white @if (Request::url() === 'http://127.0.0.1:8000/') font-black bg-blue-500/13 @endif dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors cursor-pointer front-office-link"
-                            href="/userDash">
-                            <div
-                                class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center fill-current stroke-0 text-center xl:p-2.5">
-                                <i class="relative top-0 text-sm leading-normal text-emerald-500 ni ni-credit-card"></i>
-                            </div>
-                            <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">User Table</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dark:text-white @if (Request::url() === 'http://127.0.0.1:8000/') font-black bg-blue-500/13 @endif dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex  items-center whitespace-nowrap px-4 transition-colors cursor-pointer front-office-link"
-                            href="/categoryDash/">
-                            <div
-                                class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center fill-current stroke-0 text-center xl:p-2.5">
-                                <i class="relative top-0 text-sm leading-normal text-emerald-500 ni ni-credit-card"></i>
-                            </div>
-                            <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Category Table</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dark:text-white @if (Request::url() === 'http://127.0.0.1:8000/') font-black bg-blue-500/13 @endif dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors cursor-pointer front-office-link"
-                            href="/benefitDash">
-                            <div
-                                class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center fill-current stroke-0 text-center xl:p-2.5">
-                                <i class="relative top-0 text-sm leading-normal text-emerald-500 ni ni-credit-card"></i>
-                            </div>
-                            <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Benefits Table</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dark:text-white @if (Request::url() === 'http://127.0.0.1:8000/') font-black bg-blue-500/13 @endif dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors cursor-pointer front-office-link"
-                            href="/featureDash">
-                            <div
-                                class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center fill-current stroke-0 text-center xl:p-2.5">
-                                <i class="relative top-0 text-sm leading-normal text-emerald-500 ni ni-credit-card"></i>
-                            </div>
-                            <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Feature Table</span>
-                        </a>
-                    </li>
-                </ul>
+                    <i class="toggle-icon fas fa-chevron-down"></i>
+                </div>
+                <div class="bg-blue-50 rounded-lg" style="widows: 90%;margin-left: 10px;margin-right: 10px;"
+                    id="submenu">
+                    <a class="py-2.7  dark:text-white dark:opacity-80 text-sm ease-nav-brand my-0 mx-2 flex items-center hover:bg-blue-300 whitespace-nowrap rounded-lg px-4  text-slate-700 transition-colors"
+                        href="/userDash">
+                        <div
+                            class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                            <i class="relative top-0 text-sm leading-normal text-emerald-500 ni ni-single-02"></i>
+                        </div>
+                        <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">User</span>
+                    </a>
+                    <a class="py-2.7  dark:text-white dark:opacity-80 text-sm ease-nav-brand my-0 mx-2 flex items-center hover:bg-blue-300 whitespace-nowrap rounded-lg px-4  text-slate-700 transition-colors"
+                        href="/categoryDash">
+                        <div
+                            class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                            <i class="relative top-0 text-sm leading-normal text-emerald-500 ni ni-tag"></i>
+                        </div>
+                        <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Category</span>
+                    </a>
+                    <a class="py-2.7 hover:bg-blue-300 dark:text-white dark:opacity-80 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap rounded-lg px-4  text-slate-700 transition-colors"
+                        href="/benefitDash">
+                        <div
+                            class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                            <i class="relative top-0 text-sm leading-normal text-emerald-500 ni ni-like-2"></i>
+                        </div>
+                        <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Benefits</span>
+                    </a>
+                </div>
             </li>
-
-
-
             <li class="mt-0.5 w-full">
-                <a class=" dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
-                    href="../pages/virtual-reality.html">
-                    <div
-                        class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                        <i class="relative top-0 text-sm leading-normal text-cyan-500 ni ni-app"></i>
-                    </div>
-                    <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Virtual Reality</span>
-                </a>
-            </li>
-
-            <li class="mt-0.5 w-full">
-                <a class=" dark:text-white dark:opacity-80 py-2.7 @if (Request::url() === 'http://127.0.0.1:8000/classeDash') font-black bg-blue-500/13 @endif text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
+                <a class=" dark:text-white dark:opacity-80 py-2.7 @if (Request::url() === 'http://127.0.0.1:8000/classeDash') font-black bg-blue-500/13 @endif hover:bg-blue-200 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
                     href="/classeDash">
                     <div
                         class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                        <i class="relative top-0 text-sm leading-normal text-red-600 ni ni-world-2"></i>
+                        <i class="relative top-0 text-sm leading-normal text-red-500 ni ni-settings-gear-65"></i>
                     </div>
                     <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Classes</span>
                 </a>
             </li>
 
+            <li class="mt-0.5 w-full">
+                <a class=" dark:text-white dark:opacity-80 py-2.7 @if (Request::url() === 'http://127.0.0.1:8000/AbonnementDash') font-black bg-blue-500/13 @endif hover:bg-blue-200 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
+                    href="/AbonnementDash">
+                    <div
+                        class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                        <i class="relative top-0 text-sm leading-normal text-yellow-500 ni ni-credit-card"></i>
+                    </div>
+                    <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Abonnement</span>
+                </a>
+            </li>
+
             <li class="w-full mt-4">
-                <h6 class="pl-6 ml-2 text-xs font-bold leading-tight uppercase dark:text-white opacity-60">Account pages
+                <h6 class="pl-6 ml-2 text-xs font-bold leading-tight uppercase dark:text-white opacity-60">Account
+                    Section
                 </h6>
             </li>
 
             <li class="mt-0.5 w-full">
-                <a class=" dark:text-white dark:opacity-80 py-2.7 @if (Request::url() === 'http://127.0.0.1:8000/profileDash') font-black bg-blue-500/13 @endif text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
+                <a class=" dark:text-white dark:opacity-80 py-2.7 @if (Request::url() === 'http://127.0.0.1:8000/profileDash') font-black bg-blue-500/13 @endif hover:bg-blue-200 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
                     href="/profileDash">
                     <div
                         class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
                         <i class="relative top-0 text-sm leading-normal text-slate-700 ni ni-single-02"></i>
                     </div>
                     <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Profile</span>
-                </a>
-            </li>
-
-            <li class="mt-0.5 w-full">
-                <a class=" dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
-                    href="../pages/sign-in.html">
-                    <div
-                        class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                        <i class="relative top-0 text-sm leading-normal text-orange-500 ni ni-single-copy-04"></i>
-                    </div>
-                    <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Sign In</span>
-                </a>
-            </li>
-
-            <li class="mt-0.5 w-full">
-                <a class=" dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
-                    href="../pages/sign-up.html">
-                    <div
-                        class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                        <i class="relative top-0 text-sm leading-normal text-cyan-500 ni ni-collection"></i>
-                    </div>
-                    <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Sign Up</span>
                 </a>
             </li>
         </ul>
@@ -216,6 +176,17 @@
             sidebar.classList.toggle('sidebar-open');
             toggleIcon.classList.toggle('rotate-down');
         });
-        
+
     });
+</script>
+<script type="text/javascript">
+    function dropdown() {
+        document.querySelector("#submenu").classList.toggle("hidden");
+        document.querySelector("#arrow").classList.toggle("rotate-0");
+    }
+    dropdown();
+
+    function openSidebar() {
+        document.querySelector(".sidebar").classList.toggle("hidden");
+    }
 </script>

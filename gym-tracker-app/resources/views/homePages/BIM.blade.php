@@ -1,7 +1,7 @@
 @extends('Layouts.homeLayout')
 
 @section('title')
-    BIM
+    Calories
 @endsection
 
 @section('main')
@@ -37,24 +37,24 @@
 
         <!-- Body Mass Index -->
         <section class="content-inner overflow-hidden">
-            <div class="container">
-                <div class="row  m-b20">
+            <div class="">
+                <div class="row  m-b20 flex justify-center items-center">
                     <div class="col-lg-8">
                         <div class="calculator-form wow fadeInUp" data-wow-delay="0.4s">
                             <div class="section-head style-2 m-0">
-                                <h2 class="title text-white m-0">What is BMI</h2>
+                                <h2 class="title text-white m-0">What is Calories</h2>
                                 <p class="text-white w-100">Lorem Ipsum available, but the majority have suffered alteration
                                     in some form, injected humour, or randomised words which don't look even slightly
                                     believable.</p>
                             </div>
-                            <form class="dzForm" id="BmiCalculator" method="POST"
-                                action="https://powerzone.dexignzone.com/xhtml/assets/script/contact_smtp.php">
+                            <form action="{{ route('calculate.bmr') }}" method="POST">
+                                @csrf
                                 <input type="hidden" class="form-control" name="dzToDo" value="Contact">
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <label class="form-label text-primary">Height</label>
                                         <div class="input-group input-line">
-                                            <input name="dzHeight" id="height" class="form-control">
+                                            <input name="height" id="height" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -66,29 +66,54 @@
                                     <div class="col-sm-6">
                                         <label class="form-label text-primary">Age</label>
                                         <div class="input-group input-line">
-                                            <input name="Age" id="age" class="form-control">
+                                            <input name="age" id="age" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <label class="form-label text-primary">Gender</label>
                                         <div class="input-group input-line">
-                                            <select class="default-select style-1" id="gender">
+                                            <select name="gender" class="default-select style-1" id="gender">
                                                 <option value="male" selected>Male</option>
                                                 <option value="female">Female</option>
-                                                <option value="other">Other</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 m-b20">
+                                    <div class="col-sm-6 m-b20">
                                         <label class="form-label text-primary">Select An Activity Factor:</label>
                                         <div class="input-group input-line">
-                                            <input name="activity" id="activity" class="form-control">
+                                            <select name="activity_level" class="default-select style-1" id="gender">
+                                                <option value="sedentary" selected>sedentary</option>
+                                                <option value="lightly_active">lightly active</option>
+                                                <option value="moderately_active">moderately active</option>
+                                                <option value="very_active">very active</option>
+                                                <option value="extra_active">extra active</option>
+                                            </select>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12">
-                                        <button name="submit" type="submit" value="Submit"
-                                            class="btn btn-primary btn-skew m-b30 m-sm-b15"><span class="skew-inner"><span
-                                                    class="text">Calculate Now</span></span></button>
+                                    <div class="col-sm-6 m-b20">
+                                        <label class="form-label text-primary">Weight Goal</label>
+                                        <div class="input-group input-line">
+                                            <select name="weight_goal" class="default-select style-1" id="gender">
+                                                <option value="lose">Lose Weight</option>
+                                                <option value="maintain" selected>Maintain Weight</option>
+                                                <option value="gain">Gain Weight</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm6">
+                                        @if ($user === null || $user->accepted !== 'approved')
+                                            <a href="/pricing" class="upgradeBtn">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 24">
+                                                    <path d="m18 0 8 12 10-8-4 20H4L0 4l10 8 8-12z"></path>
+                                                </svg>
+                                                Unlock Pro
+                                            </a>
+                                        @else
+                                            <button name="submit" type="submit" value="Submit"
+                                                class="btn btn-primary btn-skew m-b30 m-sm-b15"><span
+                                                    class="skew-inner"><span class="text">Calculate
+                                                        Now</span></span></button>
+                                        @endif
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="dzFormBmi"></div>
@@ -97,39 +122,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-lg-4 m-md-t40">
-                        <div class="calculate-table wow fadeInUp" data-wow-delay="0.6s">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>BMI</th>
-                                        <th>Weight Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Below 18.5</td>
-                                        <td>Underweight</td>
-                                    </tr>
-                                    <tr>
-                                        <td>18.5 - 24.9</td>
-                                        <td>Healthy</td>
-                                    </tr>
-                                    <tr>
-                                        <td>25.0 - 29.9</td>
-                                        <td>Overweight</td>
-                                    </tr>
-                                    <tr>
-                                        <td>30.0 - and Above</td>
-                                        <td>Obese</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="weight-info">
-                                <span><b>BMR</b> Metabolic Rate / <b>BMI</b> Body Mass Index </span>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </section>
@@ -148,7 +141,8 @@
                         <div class="text-center text-lg-end col-xl-6 wow fadeInUp" data-wow-delay="0.4s"
                             style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
                             <form class="dzSubscribe"
-                                action="https://powerzone.dexignzone.com/xhtml/assets/script/mailchamp.php" method="post">
+                                action="https://powerzone.dexignzone.com/xhtml/assets/script/mailchamp.php"
+                                method="post">
                                 <div class="dzSubscribeMsg"></div>
                                 <div class="form-group">
                                     <div class="input-group mb-0">
@@ -173,4 +167,43 @@
         <!-- Call To Action -->
 
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.calculateBmr').click(function() {
+                console.log('testtest');
+                changeRole(roleId, userId);
+            });
+
+            function changeRole(id, userId) {
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    type: 'POST',
+                    url: '/dashboard/update',
+                    data: {
+                        id: id,
+                        userId: userId
+                    },
+                    success: function(data) {
+                        console.log(data);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(xhr.responseText);
+                    }
+                });
+            }
+
+            $('#filterRole').change(function() {
+                var roleFilter = $(this).val();
+                if (roleFilter === 'all') {
+                    $('.user-container').show();
+                } else {
+                    $('.user-container').hide();
+                    $('.role-' + roleFilter).show();
+                }
+            });
+        });
+    </script>
 @endsection

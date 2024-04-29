@@ -101,4 +101,6 @@
             </div>
         </section>
     </div>
+    
+    <script src="{{ asset('assets/js/imageRegister.js') }}"></script><!-- ImageRegister JS -->
 @endsection

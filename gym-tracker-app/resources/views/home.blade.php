@@ -66,7 +66,7 @@
                                                 <div class="clearfix" data-swiper-parallax="-100">
                                                     <p class="para-1">START YOUR TRAININGS WITH OUR</p>
                                                     <p class="para-2"><span>PROFESSIONAL </span>TRAINERS</p>
-                                                    <a href="about-us.html"
+                                                    <a href="/pricing"
                                                         class="btn btn-skew btn-lg btn-primary align-text-bottom">
                                                         <span class="skew-inner">
                                                             <span class="text">Get Started</span>
@@ -107,7 +107,7 @@
                                                 <div class="clearfix" data-swiper-parallax="-100">
                                                     <p class="para-1">START YOUR TRAININGS WITH OUR</p>
                                                     <p class="para-2"><span>PROFESSIONAL </span>TRAINERS</p>
-                                                    <a href="about-us.html"
+                                                    <a href="/pricing"
                                                         class="btn btn-skew btn-lg btn-primary align-text-bottom">
                                                         <span class="skew-inner">
                                                             <span class="text">Get Started</span>
@@ -180,11 +180,11 @@
                                     </div>
                                 </div>
                                 <div class="icon-content">
-                                    <h4 class="dz-title m-b10"><a href="service-details.html">Our Classes</a></h4>
+                                    <h4 class="dz-title m-b10"><a href="/classes">Our Classes</a></h4>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                                     </p>
                                 </div>
-                                <a href="service-details.html" class="btn-link">Read More <i
+                                <a href="/classes" class="btn-link">Read More <i
                                         class="fa-solid fa-arrow-right"></i></a>
                                 <div class="effect"></div>
                             </div>
@@ -197,11 +197,11 @@
                                     </div>
                                 </div>
                                 <div class="icon-content">
-                                    <h4 class="dz-title m-b10"><a href="service-details.html">Our Trainers</a></h4>
+                                    <h4 class="dz-title m-b10"><a href="/coaches">Our Trainers</a></h4>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                                     </p>
                                 </div>
-                                <a href="service-details.html" class="btn-link">Read More <i
+                                <a href="/coaches" class="btn-link">Read More <i
                                         class="fa-solid fa-arrow-right"></i></a>
                                 <div class="effect"></div>
                             </div>
@@ -214,11 +214,11 @@
                                     </div>
                                 </div>
                                 <div class="icon-content">
-                                    <h4 class="dz-title m-b10"><a href="service-details.html">Memberships</a></h4>
+                                    <h4 class="dz-title m-b10"><a href="/pricing">Memberships</a></h4>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                                     </p>
                                 </div>
-                                <a href="service-details.html" class="btn-link">Read More <i
+                                <a href="/pricing" class="btn-link">Read More <i
                                         class="fa-solid fa-arrow-right"></i></a>
                                 <div class="effect"></div>
                             </div>
@@ -289,7 +289,7 @@
                                 <li><i class="flaticon-check-mark"></i>Cardio And More</li>
                             </ul>
                             <div class="wow fadeInUp" data-wow-delay="1.8s">
-                                <a href="about-us.html" class="btn btn-skew btn-lg btn-primary">
+                                <a href="/pricing" class="btn btn-skew btn-lg btn-primary">
                                     <span class="skew-inner">
                                         <span class="text">Get Started</span>
                                     </span>
@@ -820,6 +820,25 @@
             </div>
         </section>
         <!-- Call To Action -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            console.log('test55');
+            let error = "{{ session('error') }}";
+            let success = "{{ session('success') }}";
 
+            if (error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erreur',
+                    text: error
+                });
+            } else if (success) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Succès',
+                    text: success
+                });
+            }
+        </script>
     </div>
 @endsection

@@ -1,3 +1,5 @@
+@props(['data'])
+
 @section('title')
     static
 @endsection
@@ -6,7 +8,7 @@
     <!-- Navbar -->
 
     <x-Navbars.dashboard-navbar msg="Your static string here" />
-    
+
     <!-- end Navbar -->
 
     <!-- cards -->
@@ -22,12 +24,13 @@
                             <div class="flex-none w-2/3 max-w-full px-3">
                                 <div>
                                     <p
-                                        class="mb-0 font-sans text-sm font-semibold leading-normal uppercase dark:text-white dark:opacity-60">
-                                        Today's Money</p>
-                                    <h5 class="mb-2 font-bold dark:text-white">$53,000</h5>
+                                        class="mb-0 font-sans text-black text-sm font-semibold leading-normal uppercase dark:text-white dark:opacity-60">
+                                        Users's Count</p>
+                                    <h5 class="mb-2 font-bold dark:text-white">{{ $data['counts']['usersCount'] }}</h5>
                                     <p class="mb-0 dark:text-white dark:opacity-60">
-                                        <span class="text-sm font-bold leading-normal text-emerald-500">+55%</span>
-                                        since yesterday
+                                        <span
+                                            class="text-sm font-bold leading-normal text-emerald-500">{{ $data['lastInsertionTime']['User'] }}</span>
+
                                     </p>
                                 </div>
                             </div>
@@ -51,12 +54,13 @@
                             <div class="flex-none w-2/3 max-w-full px-3">
                                 <div>
                                     <p
-                                        class="mb-0 font-sans text-sm font-semibold leading-normal uppercase dark:text-white dark:opacity-60">
-                                        Today's Users</p>
-                                    <h5 class="mb-2 font-bold dark:text-white">2,300</h5>
+                                        class="mb-0 font-sans text-black text-sm font-semibold leading-normal uppercase dark:text-white dark:opacity-60">
+                                        Abonnement Count</p>
+                                    <h5 class="mb-2 font-bold dark:text-white">{{ $data['counts']['abonnementsCount'] }}</h5>
                                     <p class="mb-0 dark:text-white dark:opacity-60">
-                                        <span class="text-sm font-bold leading-normal text-emerald-500">+3%</span>
-                                        since last week
+                                        <span
+                                            class="text-sm font-bold leading-normal text-emerald-500">{{ $data['lastInsertionTime']['Abonnement'] }}</span>
+
                                     </p>
                                 </div>
                             </div>
@@ -80,12 +84,13 @@
                             <div class="flex-none w-2/3 max-w-full px-3">
                                 <div>
                                     <p
-                                        class="mb-0 font-sans text-sm font-semibold leading-normal uppercase dark:text-white dark:opacity-60">
-                                        New Clients</p>
-                                    <h5 class="mb-2 font-bold dark:text-white">+3,462</h5>
+                                        class="mb-0 font-sans text-black text-sm font-semibold leading-normal uppercase dark:text-white dark:opacity-60">
+                                        Blogs Count</p>
+                                    <h5 class="mb-2 font-bold dark:text-white">{{ $data['counts']['blogsCount'] }}</h5>
                                     <p class="mb-0 dark:text-white dark:opacity-60">
-                                        <span class="text-sm font-bold leading-normal text-red-600">-2%</span>
-                                        since last quarter
+                                        <span
+                                            class="text-sm font-bold leading-normal text-emerald-500">{{ $data['lastInsertionTime']['Blogs'] }}</span>
+
                                     </p>
                                 </div>
                             </div>
@@ -109,12 +114,13 @@
                             <div class="flex-none w-2/3 max-w-full px-3">
                                 <div>
                                     <p
-                                        class="mb-0 font-sans text-sm font-semibold leading-normal uppercase dark:text-white dark:opacity-60">
-                                        Sales</p>
-                                    <h5 class="mb-2 font-bold dark:text-white">$103,430</h5>
+                                        class="mb-0 font-sans text-black text-sm font-semibold leading-normal uppercase dark:text-white dark:opacity-60">
+                                        Classes Count</p>
+                                    <h5 class="mb-2 font-bold dark:text-white">{{ $data['counts']['classesCount'] }}</h5>
                                     <p class="mb-0 dark:text-white dark:opacity-60">
-                                        <span class="text-sm font-bold leading-normal text-emerald-500">+5%</span>
-                                        than last month
+                                        <span
+                                            class="text-sm font-bold leading-normal text-emerald-500">{{ $data['lastInsertionTime']['Classes'] }}</span>
+
                                     </p>
                                 </div>
                             </div>
@@ -128,8 +134,8 @@
                     </div>
                 </div>
             </div>
+            
         </div>
-
         <!-- cards row 2 -->
         <div class="flex flex-wrap mt-6 -mx-3">
             <div class="w-full max-w-full px-3 mt-0 lg:w-7/12 lg:flex-none">

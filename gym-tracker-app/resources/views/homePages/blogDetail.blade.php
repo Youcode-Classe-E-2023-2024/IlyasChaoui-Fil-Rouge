@@ -366,7 +366,7 @@
                                             <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold">
                                                 <img
                                                     class="mr-2 w-6 h-6 rounded-full"
-                                                    src="${profilePictureUrl}"
+                                                    src="/${comment.user.picture}"
                                                     alt="${comment.user.name}">${comment.user.name}</p>
                                              <p class="text-sm text-gray-600 dark:text-gray-400">
                                                                    <time pubdate datetime="${comment.created_at}" title="${formattedDate}">${formattedDate} | ${formattedTime}</time>

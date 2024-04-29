@@ -1,13 +1,14 @@
+    @props(['user'])
     @section('title')
         Profile
     @endsection
 
     <div class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68">
-        
+
         <!-- Navbar -->
 
         <x-Navbars.dashboard-navbar msg="Your static string here" />
-        
+
         <!-- end Navbar -->
 
         <div class="relative w-full mx-auto" style="margin-top: 150px">
@@ -115,7 +116,8 @@
                             <hr
                                 class="h-px mx-0 my-4 bg-transparent border-0 opacity-25 bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent " />
 
-                            <p class="leading-normal uppercase dark:text-white dark:opacity-60 text-sm">Contact Information
+                            <p class="leading-normal uppercase dark:text-white dark:opacity-60 text-sm">Contact
+                                Information
                             </p>
                             <div class="flex flex-wrap -mx-3">
                                 <div class="w-full max-w-full px-3 shrink-0 md:w-full md:flex-0">
@@ -175,13 +177,14 @@
                 <div class="w-full max-w-full px-3 mt-6 shrink-0 md:w-4/12 md:flex-0 md:mt-0">
                     <div
                         class="relative flex flex-col min-w-0 break-words bg-white border-0 shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
-                        <img class="w-full rounded-t-2xl" src="./assets-dashboard/img/bg-profile.jpg" alt="profile cover image">
+                        <img class="w-full rounded-t-2xl" src="./assets-dashboard/img/bg-profile.jpg"
+                            alt="profile cover image">
                         <div class="flex flex-wrap justify-center -mx-3">
                             <div class="w-4/12 max-w-full px-3 flex-0 ">
                                 <div class="mb-6 -mt-6 lg:mb-0 lg:-mt-16">
                                     <a href="javascript:;">
                                         <img class="h-auto max-w-full border-2 border-white border-solid rounded-circle"
-                                            src="./assets-dashboard/img/team-2.jpg" alt="profile image">
+                                            src="{{ $user->picture }}" alt="profile image">
                                     </a>
                                 </div>
                             </div>
@@ -209,37 +212,40 @@
                                     <div class="flex justify-center">
                                         <div class="grid text-center">
                                             <span class="font-bold dark:text-white text-lg">22</span>
-                                            <span class="leading-normal dark:text-white text-sm opacity-80">Friends</span>
+                                            <span
+                                                class="leading-normal dark:text-white text-sm opacity-80">Friends</span>
                                         </div>
                                         <div class="grid mx-6 text-center">
                                             <span class="font-bold dark:text-white text-lg">10</span>
-                                            <span class="leading-normal dark:text-white text-sm opacity-80">Photos</span>
+                                            <span
+                                                class="leading-normal dark:text-white text-sm opacity-80">Photos</span>
                                         </div>
                                         <div class="grid text-center">
                                             <span class="font-bold dark:text-white text-lg">89</span>
-                                            <span class="leading-normal dark:text-white text-sm opacity-80">Comments</span>
+                                            <span
+                                                class="leading-normal dark:text-white text-sm opacity-80">Comments</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="mt-6 text-center">
                                 <h5 class="dark:text-white ">
-                                    Mark Davis
+                                    {{ $user->name }}
                                     <span class="font-light">, 35</span>
                                 </h5>
                                 <div
                                     class="mb-2 font-semibold leading-relaxed text-base dark:text-white/80 text-slate-700">
                                     <i class="mr-2 dark:text-white ni ni-pin-3"></i>
-                                    Bucharest, Romania
+                                    {{ $user->city->name }}
                                 </div>
                                 <div
                                     class="mt-6 mb-2 font-semibold leading-relaxed text-base dark:text-white/80 text-slate-700">
                                     <i class="mr-2 dark:text-white ni ni-briefcase-24"></i>
-                                    Solution Manager - Creative Tim Officer
+                                    Admin - GymTracker
                                 </div>
                                 <div class="dark:text-white/80">
-                                    <i class="mr-2 dark:text-white ni ni-hat-3"></i>
-                                    University of Computer Science
+                                    <i class="mr-2 dark:text-white ni ni-phone-3"></i>
+                                    {{ $user->phone_number }}
                                 </div>
                             </div>
                         </div>
@@ -258,7 +264,8 @@
                                 </script>
                                 made with <i class="fa fa-heart"></i> by
                                 <a href="https://www.creative-tim.com"
-                                    class="font-semibold dark:text-white text-slate-700" target="_blank">Creative Tim</a>
+                                    class="font-semibold dark:text-white text-slate-700" target="_blank">Creative
+                                    Tim</a>
                                 for a better web.
                             </div>
                         </div>

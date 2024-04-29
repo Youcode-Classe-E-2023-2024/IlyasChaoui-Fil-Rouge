@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('abonnement_classe', function (Blueprint $table) {
+        Schema::create('abonnements', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('classe_id');
-            $table->bigInteger('abonnement_id');
-
-            $table->foreign('classe_id')->references('id')->on('classes');
-            $table->foreign('abonnement_id')->references('id')->on('abonnement');
-
+            $table->string('name');
+            $table->string('price');
+            $table->bigInteger('plan_id');
             $table->timestamps();
+
+            $table->foreign('plan_id')->references('id')->on('plans');
         });
     }
 
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('abonnement_classe');
+        Schema::dropIfExists('abonnement');
     }
 };

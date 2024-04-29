@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class City extends Model
+class Feature extends Model
 {
     use HasFactory;
 
@@ -13,8 +13,8 @@ class City extends Model
         'name',
     ];
 
-    public function users()
+    public function abonnements()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsToMany(Abonnement::class);
     }
 }

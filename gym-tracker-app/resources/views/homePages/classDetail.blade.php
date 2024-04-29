@@ -3,7 +3,14 @@
 @section('title')
     Class details
 @endsection
+<style>
+    .description {
+    max-width: 100%; /* Adjust as needed */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
 
+</style>
 @section('main')
     <div class="page-content bg-white">
 
@@ -67,13 +74,26 @@
                                     <div class="icon-bx">
                                         <i class="flaticon-contact-center"></i>
                                     </div>
-                                    <h4>Do you need any help?</h4>
-                                    <div class="phone-number"><a href="tel:+4733378901">+91 12345 678 98</a></div>
-                                    <h6 class="email">info@dexignzone.com</h6>
+                                    <h2>Welcome!</h2>
+                                    <h4>Explore the latest posts from our coaches in the "{{ $class->category->name }}"
+                                        category.</h4>
+                                    <div class="phone-number"><a
+                                            href="tel:+4733378901">{{ $class->coach->phone_number }}</a></div>
+                                    <h6 class="email">{{ $class->coach->email }}</h6>
                                     <div class="link-btn">
-                                        <a href="{{ route('show.blogs' , ['id' => $class->coach->id]) }}" class="btn btn-secondary btn-skew">
-                                            <span class="skew-inner"><span class="text">View Posts</span></span>
-                                        </a>
+                                        @if ($user === null || $user->accepted !== 'approved')
+                                            <a href="/pricing" class="upgradeBtn" style="margin-left:54px;">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 24">
+                                                    <path d="m18 0 8 12 10-8-4 20H4L0 4l10 8 8-12z"></path>
+                                                </svg>
+                                                Unlock Pro
+                                            </a>
+                                        @else
+                                            <a href="{{ route('show.blogs', ['id' => $class->coach->id]) }}"
+                                                class="btn btn-secondary btn-skew">
+                                                <span class="skew-inner"><span class="text">View Posts</span></span>
+                                            </a>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -87,7 +107,7 @@
                             <div class="m-b40">
                                 <h3 class="title m-b15 font-weight-700 wow fadeInUp" data-wow-delay="0.5s">
                                     {{ $class->name }}</h3>
-                                <p class="wow fadeInUp" data-wow-delay="1.2s">{{ $class->description }}</p>
+                                <p class="wow fadeInUp description" data-wow-delay="1.2s">{{ $class->description }}</p>
                             </div>
 
                             <div class="m-b40">
@@ -105,21 +125,32 @@
                             </div>
                             <div class="row align-items-center">
                                 <div class="col-xl-6 m-b30">
-                                    <h3 class="m-b10 font-weight-700 wow fadeInUp" data-wow-delay="0.8s">Start Online
-                                        Courses ?</h3>
-                                    <p class="wow fadeInUp" data-wow-delay="2.2s">We are an independent gym that is
-                                        committed to working with you to gain the results you want.</p>
-                                    <p class="m-b0 wow fadeInUp" data-wow-delay="2.4s">Whether your aim is to loose weight
-                                        tone up build bulk or gain weight we can put together a gym programme or recommend
-                                        the right classes for you to attend in our studios members benefit.</p>
-                                </div>
-                                <div class="col-xl-6 m-b30">
                                     <div class="dz-media wow fadeInUp" data-wow-delay="0.9s">
-                                        <img src="{{ asset($class->coach->picture) }}" class="img-cover"
-                                            alt="">
+                                        <img src="{{ asset($class->coach->picture) }}" class="img-cover" alt="">
                                     </div>
                                 </div>
+                                <div class="col-xl-6 m-b30">
+                                    <h3 class="m-b10 font-weight-700 wow fadeInUp" data-wow-delay="0.8s">Meet Your Coach:
+                                        {{ $class->coach->name }}</h3>
+                                    <p class="text-bold wow fadeInUp" data-wow-delay="1.2s">
+                                        {{ $class->coach->city->name }}
+                                    </p>
+                                    <p class="m-b0 wow fadeInUp" data-wow-delay="1.4s">
+                                        Our experienced coach is here to help you achieve your fitness goals. Whether you
+                                        prefer online courses or in-person training, we have you covered. Get personalized
+                                        guidance and support tailored to your needs.
+                                    </p>
+                                    <p class="m-b0 wow fadeInUp" data-wow-delay="1.6s">
+                                        To schedule an in-person training session or learn more about our services, please
+                                        contact us at:
+                                    </p>
+                                    <div class="phone-number wow fadeInUp" data-wow-delay="1.8s">
+                                        <a href="tel:+1234567890"> {{ $class->coach->phone_number }}</a>
+                                    </div>
+                                    <h6 class="email wow fadeInUp" data-wow-delay="2s"> {{ $class->coach->email }}</h6>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

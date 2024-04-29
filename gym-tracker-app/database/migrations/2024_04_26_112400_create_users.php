@@ -18,14 +18,18 @@ return new class extends Migration
             $table->string('phone_number');
             $table->bigInteger('city_id');
             $table->bigInteger('role_id');
+            $table->bigInteger('abonnement_id')->nullable();
+            $table->date('abonnement_date')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->boolean('accepted')->default(false);
             $table->rememberToken();
             $table->timestamps();
-            
+
             $table->foreign('role_id')->references('id')->on('roles');
-            $table->foreign('city_id')->references('id')->on('cities'); 
+            $table->foreign('abonnement_id')->references('id')->on('abonnements');
+            $table->foreign('city_id')->references('id')->on('cities');
         });
     }
 

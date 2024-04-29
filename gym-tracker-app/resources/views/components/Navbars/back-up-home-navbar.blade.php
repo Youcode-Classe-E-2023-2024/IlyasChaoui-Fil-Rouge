@@ -36,7 +36,7 @@
                                         class="w-12 h-12 rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
                                         <img src="{{ asset($user->picture) }}" alt="" class="w-full h-full object-cover">
                                     </div>
-                                    <div class="font-semibold text-white" id="dropdownMenu" style="font-size: 14px">
+                                    <div class="font-semibold text-black" id="" style="font-size: 14px">
                                         <div class="cursor-pointer">{{ $user->name }}</div>
                                     </div>
                                 </div>

@@ -5,16 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class City extends Model
+class AbonnementFeature extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'abonnement_id',
+        'feature_id',
     ];
 
-    public function users()
-    {
-        return $this->hasMany(User::class);
-    }
+    protected $table = 'abonnement_feature';
 }

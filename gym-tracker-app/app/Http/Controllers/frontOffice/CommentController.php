@@ -15,6 +15,7 @@ class CommentController extends Controller
             ->with('user')
             ->orderBy('created_at', 'desc')
             ->get();
+            
         return response()->json($comments);
     }
 

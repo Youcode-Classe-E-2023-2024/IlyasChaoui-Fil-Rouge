@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from powerzone.dexignzone.com/xhtml/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 01 Apr 2024 13:53:08 GMT -->
+<!-- Mirrored from powerzone.dexignzone.com/xhtml/error-404.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 01 Apr 2024 13:57:39 GMT -->
 
 <head>
 
     <!-- Title -->
-    <title>GymTracker | @yield('title')</title>
+    <title>Not Found</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -31,28 +31,16 @@
     <!-- Mobile Specific -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon.png') }}">
-
-    <!-- Tailwind cdn -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
-    <!-- Stylesheet -->
-    <link href="{{ asset('assets/vendor/animate/animate.css') }}" rel="stylesheet">
-    <link href="{{ asset('./assets-dashboard/css/buttons.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/splitting/dist/splitting.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/magnific-popup/magnific-popup.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/rangeslider/rangeslider.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/switcher/switcher.css') }}" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link href="assets/vendor/animate/animate.css" rel="stylesheet">
+    <link href="assets/vendor/rangeslider/rangeslider.css" rel="stylesheet">
+    <link href="assets/vendor/switcher/switcher.css" rel="stylesheet">
 
     <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <link class="skin" rel="stylesheet" href="{{ asset('assets/css/skin/skin-1.css') }}">
-
-    <!-- Alpine -->
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link class="skin" rel="stylesheet" href="assets/css/skin/skin-1.css">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -64,7 +52,7 @@
 </head>
 
 <body id="bg" class="data-typography-1">
-    <div id="loading-area" class="loading-page-1">
+       <div id="loading-area" class="loading-page-1">
         <div class="loading-inner">
             <span class="text-primary">G</span>
             <span class="text-primary">Y</span>
@@ -80,35 +68,39 @@
     </div>
 
     <div class="page-wraper">
-        <!-- Header -->
-            <x-Navbars.home-navbar :user="$user" />
 
+        <div class="page-content bg-white">
 
-            <!-- End Header -->
-
-            @yield('main')
-
-            <x-Footers.home-footer />
+            <section class="error-page-1 overflow-hidden">
+                <div class="banner-gradient"></div>
+                <div class="container">
+                    <div class="inner-content text-center">
+                        <h1 class="dz_error wow fadeInUp" data-wow-delay="0.4s">4<span><i
+                                    class="flaticon flaticon-kettlebell"></i></span>4</h1>
+                        <h2 class="error-head wow fadeInUp" data-wow-delay="0.6s">Oops, Page Not Found !</h2>
+                        <p class="text wow fadeInUp" data-wow-delay="0.8s">We are sorry. But the page you are looking
+                            for cannot be found.</p>
+                        <div class="read-btn" style="margin-bottom: 200px;">
+                            <a class="btn btn-primary btn-skew wow fadeInUp m-b15" data-wow-delay="1.0s"
+                                href="/"><span class="skew-inner"><span class="text m-0">Back Go
+                                        Home</span></span></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
-
-    <!-- sweet aleart file  -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- JAVASCRIPT FILES ========================================= -->
-    <script src="{{ asset('assets/js/jquery.min.js') }}"></script><!-- JQUERY.MIN JS -->
-    <script src="{{ asset('assets/vendor/wow/wow.js') }}"></script><!-- WOW.JS -->
-    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script><!-- BOOTSTRAP.MIN JS -->
-    <script src="{{ asset('assets/vendor/splitting/dist/splitting.min.js') }}"></script><!-- Splitting -->
-    <script src="{{ asset('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script><!-- BOOTSTRAP SELEECT -->
-    <script src="{{ asset('assets/vendor/magnific-popup/magnific-popup.js') }}"></script><!-- MAGNIFIC POPUP JS -->
-    <script src="{{ asset('assets/vendor/counter/waypoints-min.js') }}"></script><!-- WAYPOINTS JS -->
-    <script src="{{ asset('assets/vendor/counter/counterup.min.js') }}"></script><!-- COUNTERUP JS -->
-    <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script><!-- SWIPER -->
-    <script src="{{ asset('assets/vendor/rangeslider/rangeslider.js') }}"></script><!-- RANGESLIDER -->
-    {{-- <script src="{{ asset('assets/vendor/switcher/switcher.js') }}"></script><!-- SWITCHER --> --}}
-    <script src="{{ asset('assets/js/dz.carousel.js') }}"></script><!-- OWL-CAROUSEL -->
-    <script src="{{ asset('assets/js/dz.ajax.js') }}"></script><!-- AJAX -->
-    <script src="{{ asset('assets/js/custom.js') }}"></script><!-- CUSTOM JS -->
-
+    <script src="assets/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
+    <script src="assets/vendor/wow/wow.js"></script><!-- WOW.JS -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+    <script src="assets/js/dz.carousel.js"></script><!-- OWL-CAROUSEL -->
+    <script src="assets/js/dz.ajax.js"></script><!-- AJAX -->
+    <script src="assets/js/custom.js"></script><!-- CUSTOM JS -->
+    <script src="assets/vendor/rangeslider/rangeslider.js"></script><!-- RANGESLIDER -->
+    <script src="assets/vendor/switcher/switcher.js"></script><!-- SWITCHER -->
 </body>
+
+<!-- Mirrored from powerzone.dexignzone.com/xhtml/error-404.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 01 Apr 2024 13:57:39 GMT -->
 
 </html>

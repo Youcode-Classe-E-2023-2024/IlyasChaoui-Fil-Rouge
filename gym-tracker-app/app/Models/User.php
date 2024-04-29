@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'picture',
         'phone_number',
+        'abonnement_id',
+        'abonnement_date',
         'city_id',
         'role_id',
         'email',
@@ -51,8 +53,24 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+
     public function blogs()
     {
         return $this->hasMany(Blog::class);
     }
+
+    public function abonnement()
+    {
+        return $this->belongsTo(Abonnement::class);
+    }
+
+    public function classes()
+    {
+        return $this->hasMany(Classe::class, 'coach_id');
+    }
 }
+

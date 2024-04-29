@@ -178,18 +178,27 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    
+
                                                     </form>
                                                     <button data-modal-target="crud-modal-{{ $benefit->id }}"
                                                         data-modal-toggle="crud-modal-{{ $benefit->id }}"
                                                         class="bg-transparent cursor-pointer flex flex-row font-medium text-blue-500 px-2 py-1 mt-2 rounded-md transition duration-150"
                                                         type="submit">
-                                                        <svg class="w-5 h-5 mx-1" fill="none" stroke="currentColor"
-                                                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                                stroke-width="2"
-                                                                d="M4 4v3m0 13v3m13-3h3M7.5 9l3-3m0 6l-3 3m8-9l3-3m-3 3l-3 3">
-                                                            </path>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="20" height="20" viewBox="0,0,256,256">
+                                                            <g fill="#133fb9" fill-rule="nonzero" stroke="none"
+                                                                stroke-width="1" stroke-linecap="butt"
+                                                                stroke-linejoin="miter" stroke-miterlimit="10"
+                                                                stroke-dasharray="" stroke-dashoffset="0"
+                                                                font-family="none" font-weight="none"
+                                                                font-size="none" text-anchor="none"
+                                                                style="mix-blend-mode: normal">
+                                                                <g transform="scale(10.66667,10.66667)">
+                                                                    <path
+                                                                        d="M19.17188,2c-0.72375,0 -1.4475,0.27562 -2,0.82813l-1.17187,1.17188l4,4l1.17188,-1.17187c1.104,-1.104 1.104,-2.895 0,-4c-0.5525,-0.5525 -1.27625,-0.82812 -2,-0.82812zM14.5,5.5l-11.5,11.5v4h4l11.5,-11.5z">
+                                                                    </path>
+                                                                </g>
+                                                            </g>
                                                         </svg>
                                                         Edit
                                                     </button>

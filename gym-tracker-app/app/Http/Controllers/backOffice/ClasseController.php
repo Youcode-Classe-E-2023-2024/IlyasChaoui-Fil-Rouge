@@ -58,7 +58,7 @@ class ClasseController extends Controller
                 $benefitClass->save();
             }
 
-            return redirect('/')->with('success', 'Class created successfully.');
+            return redirect('/classeDash')->with('success', 'Class created successfully.');
         } else {
             return redirect()->back()->with('failed', 'Failed to create class.');
         }
@@ -70,36 +70,22 @@ class ClasseController extends Controller
             'name' => 'required',
             'description' => 'required',
             'coach' => 'required|integer',
-            'category' => 'required|integer',
-            'classPicture' => 'image|mimes:jpeg,png,jpg,gif,svg',
             'benefits' => 'required|array'
         ]);
 
-        $picturePath = null;
-        if ($request->hasFile('classPicture')) {
-            $file = $request->file('classPicture');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $destinationPath = 'assets-dashboard/img/classPicture';
-            $file->move(public_path($destinationPath), $filename);
-            $picturePath = $destinationPath . '/' . $filename;
-        }
-
         $classe = Classe::findOrFail($id);
-
         $benfitsClasse = BenefitClass::get()->where('classe_id', $id);
 
         $classe->name = $request->input('name');
         $classe->description = $request->input('description');
         $classe->coach_id = $request->input('coach');
-        $classe->picture = $picturePath;
-        $classe->category_id = $request->input('category');
 
         $classe->save();
-
+        
         foreach ($benfitsClasse as $benefit) {
             $benefit->delete();
         }
-        
+
         $selectedBenefits = explode(',', $request->benefits[0]);
         foreach ($selectedBenefits as $benefitId) {
             $benefitClass = new BenefitClass();
@@ -107,16 +93,14 @@ class ClasseController extends Controller
             $benefitClass->benefits_id = $benefitId;
             $benefitClass->save();
         }
-
-        return redirect('/')->with('success', 'Class updated successfully.');
+        return redirect('/classeDash')->with('success', 'Class updated successfully.');
     }
 
     public function deleteClasse($id)
     {
         $classe = Classe::findOrFail($id);
-        dd($classe->id);
         $classe->delete();
 
-        return redirect('/')->with('success', 'Class deleted successfully.');
+        return redirect('/classeDash')->with('success', 'Class deleted successfully.');
     }
 }

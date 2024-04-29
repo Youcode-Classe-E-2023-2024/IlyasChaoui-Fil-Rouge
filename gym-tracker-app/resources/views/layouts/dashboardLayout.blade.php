@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="apple-touch-icon" sizes="76x76" href="./assets-dashboard/img/apple-icon.png" />
     <link rel="icon" type="image/png" href="./assets-dashboard/img/favicon.png" />
     <title>Dashboard | @yield('title')</title>
@@ -48,7 +49,7 @@
 
     @yield('main')
 
-    <x-sidebars.fixed-sidebar />
+    <x-sidebars.fixed-sidebar :users="$users" />
 
 </body>
 
@@ -58,5 +59,7 @@
 <script src="./assets-dashboard/js/plugins/perfect-scrollbar.min.js" async></script>
 <!-- main script file  -->
 <script src="./assets-dashboard/js/argon-dashboard-tailwind.js?v=1.0.1" async></script>
+<!-- sweet aleart file  -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </html>
