@@ -72,7 +72,7 @@ Route::get('/classes', [HomeController::class, 'showClasses'])->name('show.class
 | Bim Section Route
 |--------------------------------------------------------------------------
 */
-Route::get('/bim', [HomeController::class, 'showBim'])->name('show.BIM')->middleware('sub:Business|Expensive');
+Route::get('/bim', [HomeController::class, 'showBim'])->name('show.BIM');
 Route::post('/bim/result', [HomeController::class, 'calculateBmr'])->name('calculate.bmr')->middleware('sub:Business|Expensive');
 
 /*
@@ -81,6 +81,12 @@ Route::post('/bim/result', [HomeController::class, 'calculateBmr'])->name('calcu
 |--------------------------------------------------------------------------
 */
 Route::get('/coachDetail/{id}', [HomeController::class, 'showCoachDetail'])->name('coach.detail')->middleware('sub:Business|Basic|Expensive');
+
+Route::get('/Blogs/{id}', [HomeController::class, 'showBlogs'])->name('show.blogs')->middleware('sub:Business|Basic|Expensive');
+Route::get('/blogDetail/{id}', [HomeController::class, 'showBlogDetails'])->name('blog.detail')->middleware('sub:Business|Basic|Expensive');
+
+Route::post('/ajaxupload', [CommentController::class, 'upload'])->name('add.comment');
+Route::get('/comments/{id}', [CommentController::class, 'fetchComments']);
 
 Route::middleware(['guest'])->group(
     function () {
@@ -206,16 +212,14 @@ Route::middleware(['auth'])->group(
                 | Blog Section Route
                 |--------------------------------------------------------------------------
                 */
-                Route::get('/Blogs/{id}', [HomeController::class, 'showBlogs'])->name('show.blogs')->middleware('sub:Business|Basic|Expensive');
-                Route::get('/blogDetail/{id}', [HomeController::class, 'showBlogDetails'])->name('blog.detail')->middleware('sub:Business|Basic|Expensive');
+                
 
                 /*
                 |--------------------------------------------------------------------------
                 | Comments Add/Fetch Route
                 |--------------------------------------------------------------------------
                 */
-                Route::post('/ajaxupload', [CommentController::class, 'upload'])->name('add.comment');
-                Route::get('/comments/{id}', [CommentController::class, 'fetchComments']);
+                
 
                 /*
                 |--------------------------------------------------------------------------

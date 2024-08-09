@@ -7,7 +7,7 @@
                     <div class="col-xl-3 col-md-12 wow fadeInUp" data-wow-delay="0.2s">
                         <div class="widget widget_about">
                             <div class="footer-logo logo-white">
-                                <a href="index.html"><img src="{{ asset('assets/images/logo-white.png') }}" alt=""></a>
+                                <a href="index.html"><img src="{{ asset('assets/images/white-gym-logo.png') }}" alt=""></a>
                             </div>
                             <p>A Wonderful Serenity Has Taken Possession Of My Entire Soul, Like These.</p>
                             <span class="m-b15 d-block text-white font-weight-600">Our Socials</span>

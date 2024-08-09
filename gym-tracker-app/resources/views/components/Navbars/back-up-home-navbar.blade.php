@@ -8,7 +8,7 @@
                 <div class="clearfix">
                     <!-- Website Logo -->
                     <div class="logo-header mostion logo-dark">
-                        <a href="index.html"><img src="{{ asset('assets/images/logo.png') }}" alt=""></a>
+                        <a href="index.html"><img src="{{ asset('assets/images/white-gym-logo.png') }}" alt=""></a>
                     </div>
 
                     <!-- Nav Toggle Button -->
@@ -144,7 +144,7 @@
                     <!-- Header Nav -->
                     <div class="header-nav navbar-collapse collapse justify-content-end" id="navbarNavDropdown">
                         <div class="logo-header logo-dark">
-                            <a href="index.html"><img src="{{ asset('assets/images/logo.png') }}" alt=""></a>
+                            <a href="index.html"><img src="{{ asset('assets/images/Gym-logo.png') }}" alt=""></a>
                         </div>
                         <ul class="nav navbar-nav navbar navbar-left">
                             <li>

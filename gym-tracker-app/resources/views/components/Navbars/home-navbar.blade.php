@@ -6,10 +6,10 @@
 
                 <!-- Website Logo -->
                 <div class="logo-header logo-white">
-                    <a href="/"><img src="{{ asset('assets/images/logo-white.png') }}" alt=""></a>
+                    <a href="/"><img src="{{ asset('assets/images/white-gym-logo.png') }}" alt=""></a>
                 </div>
                 <div class="logo-header logo-dark">
-                    <a href="index.html"><img src="{{ asset('assets/images/logo.png') }}" alt=""></a>
+                    <a href="index.html"><img src="{{ asset('assets/images/Gym-logo.png') }}" alt=""></a>
                 </div>
 
                 <!-- Nav Toggle Button -->
@@ -145,7 +145,7 @@
                 <!-- Header Nav -->
                 <div class="header-nav navbar-collapse collapse justify-content-end" id="navbarNavDropdown">
                     <div class="logo-header logo-dark">
-                        <a href="index.html"><img src="{{ asset('assets/images/logo.png') }}" alt=""></a>
+                        <a href="index.html"><img src="{{ asset('assets/images/Gym-logo.png') }}" alt=""></a>
                     </div>
                     <ul class="nav navbar-nav navbar navbar-left">
                         <li>

@@ -32,9 +32,9 @@
                 </div>
             </div>
         </article>
-        <x-pop-ups.delete-class :classe="$classe" />
+        {{-- <x-pop-ups.delete-class :classe="$classe" />
         <x-pop-ups.update-class :message="$message" :classe="$classe" :coaches="$coaches" :modalId="'authentication-modal-' . $classe->id" :categories="$categories"
-            :benefits="$benefits" />
+            :benefits="$benefits" /> --}}
         
     @endforeach
 </div>
